@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block app_content %}
+    <h1>Seus bots</h1>
+    {% if bots != none%}
+    {%for bot in bots%}
+        {% include '_bot.html' %}
+    {%endfor%}
+    {%else%}
+    <p>Voce nao tem nenhum bot :(<br>Quer criar um agora?</p>
+    {%endif%}
+    <a class="btn btn-success" href="{{url_for('main.botform')}}">Criar bot</a>
+{% endblock %}

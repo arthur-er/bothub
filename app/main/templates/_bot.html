@@ -1,0 +1,24 @@
+<style>
+    table tr td:last-child {
+        text-align: right;
+    }
+</style>
+<table class="table table-hover">
+    <tr>
+        <td>
+            <b>{{bot.name}}</b>
+            <br><br>
+        </td>
+        <td>
+        </td>
+        <td class="">
+            <span>
+                <a href="{{url_for('chat.chat', bhash=bot.bhash)}}">
+                    <button type="button" class="btn btn-success btn-lg">
+                        <span>Conversar</span>
+                    </button>
+                </a>
+            </span>
+        </td>
+    </tr>
+</table>

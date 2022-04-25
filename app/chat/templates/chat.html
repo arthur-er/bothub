@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+    <h1>Voce esta falando com o bot!</h1>
+    <hr>
+    {% for message in messages %}
+        {% if message.user_id == user.id %}
+            {% if not message.hidden %}
+                {% if message.bothash == bhash %}
+                    {% if message.isbot == 0 %}
+                        <p><b>Voce falou:</b> {{message.content}}</p>
+                    {% else %}    
+                            <p><b>O bot falou:</b> {{message.content}}</p>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+    <div class="row">
+        <div class="col-md-4">
+            {{ wtf.quick_form(form) }}
+        </div>
+    </div>
+{% endblock %}
